@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RentalZo - Coming Soon</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body {
+    overflow-x: hidden !important; /* Forces the browser to hide the scrollbar */
+    width: 100%;                  /* Ensures they don't grow beyond the viewport */
+    margin: 0;                    /* Removes default browser margins that can cause overflow */
+    padding: 0;                   /* Removes default browser padding */
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #000;
+    color: #fff;
+      width: 100%;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    body::-webkit-scrollbar {
+    display: none;
+    }
+}
+
+ h1.logo-text {
+        font-family: 'Cinzel', serif;
+        font-size: 4rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        color: #ffffff; /* Rental color */
+    }
+
+    h1.logo-text span {
+        color: #4db8e8; /* Zo color */
+        font-weight: 700;
+    }
+
+/* Splash Screen */
+#splash-screen {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    animation: fadeOut 1.7s ease-in-out 6.5s forwards;
+    border-radius: 20px;
+}
+
+#splash-screen video {
+    max-width: 100%;
+    max-width: 100%;
+     border-radius: 20px;
+}
+
+@keyframes fadeOut {
+    to { opacity: 0; visibility: hidden; }
+}
+
+/* Main */
+.main-content {
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out 3s forwards;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* Header */
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 60px;
+    z-index: 10;
+}
+
+.logo {
+    width: 180px;
+    height: auto;
+}
+
+/* HERO – SAME STYLE AS UPLOADED IMAGE */
+.hero {
+    min-height: 100vh;
+    background:
+        linear-gradient(
+            to right,
+            rgba(0,0,0,0.60),
+            rgba(0,0,0,0.42),
+            rgba(0,0,0,0.60)
+        ),
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,0.52),
+            rgba(0,0,0,0.75)
+        ),
+        url('assets/bg.jpg');
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 20px;
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+
+
+
+/* Content Box (Invisible – like reference) */
+.hero-content {
+    max-width: 900px;
+    text-align: center;
+}
+
+/* Text */
+h1 {
+    font-size: 3.8em;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.tagline {
+    font-size: 1.5em;
+    color: #4db8e8;
+    margin-bottom: 25px;
+}
+
+.description {
+    font-size: 1.15em;
+    color: #ddd;
+    line-height: 1.8;
+    margin-bottom: 40px;
+}
+
+/* Services */
+.services {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+.service-item {
+    border: 1px solid #1e90ff;
+    padding: 14px 26px;
+    border-radius: 6px;
+    font-size: 1.05em;
+    background: #1e90ff;
+    color: #fff;
+    cursor: pointer;
+
+    /* Transition + delay */
+transition:
+    background-color 0.45s ease 0.15s,
+    color 0.45s ease 0.15s,
+    border-color 0.45s ease 0.15s;
+}
+
+.service-item:hover {
+    background-color: #f9fafb;
+    border-color: #fbfbfc;
+    color: #0e0c0c;
+    cursor: pointer;
+}
+
+
+/* .service-item {
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 14px 26px;
+    border-radius: 4px;
+    font-size: 1.05em;
+    background: rgba(0,0,0,0.4);
+    transition: all 0.3s ease;
+}
+
+.service-item:hover {
+    background: #1e90ff;
+    border-color: #1e90ff;
+} */
+
+/* Coming Soon */
+.coming-soon {
+    font-size: 2.2em;
+    font-weight: 700;
+    margin: 30px 0;
+}
+
+/* Contact */
+.contact-item {
+    display: inline-block;
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 14px 30px;
+    border-radius: 30px;
+    font-size: 1.3em;
+}
+
+/* Footer */
+footer {
+    background: #0b0b0b;
+    text-align: center;
+    padding: 30px;
+}
+
+.company-link {
+    color: #4db8e8;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5em;
+    }
+    header {
+        padding: 20px;
+    }
+}
+img{
+    border-radius: 10px;
+}
+
+/* Header Layout */
+.top-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    max-width: 100vw;     /* 🔥 IMPORTANT */
+    padding: 25px 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    overflow-x: hidden;  /* 🔥 STOP overflow */
+    z-index: 20;
+}
+
+/* Buildzo Brand (Top Right) */
+/* Buildzo Brand Container (White Box) */
+/* Buildzo Brand Container */
+.buildzo-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;   /* 🔥 vertical centering */
+    gap: 6px;
+
+    background: #ffffff;
+    width: 120px;
+    height: 100px;             /* 🔥 same as width */
+    border-radius: 50%;
+
+    text-decoration: none;
+    color: #0e0c0c;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Small top text */
+.buildzo-text {
+    font-size: 0.8em;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+    line-height: 1;
+}
+
+/* Logo */
+.buildzo-brand img {
+    width: 85px;               /* 🔥 fit inside circle */
+    height: auto;
+    margin: 4px 0;
+}
+
+/* Company name */
+.buildzo-brand span {
+    font-size: 1em;
+    font-weight: 700;
+    color: #1e90ff;
+    line-height: 1;
+}
+
+/* Hover effect */
+.buildzo-brand:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 35px rgba(0,0,0,0.4);
+}
+
+
+
+
+@media (max-width: 768px) {
+    .buildzo-brand span {
+        display: none;
+    }
+    .buildzo-brand img {
+        width: 32px;
+    }
+}
+@media (max-width: 768px) {
+    .buildzo-brand img {
+        width: 65px;
+    }
+    .buildzo-text {
+        font-size: 0.8em;
+    }
+}
+
+.under {
+  font-family: 'Arial Black', 'Segoe UI', sans-serif;
+  font-size: 48px;
+  font-weight: 900;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #153256;
+  text-align: center;
+  padding: 30px 40px;
+  display: inline-block;
+  background-color: transparent;
+
+  /* Text shadow only */
+  text-shadow: 
+    2px 2px 4px rgba(255, 255, 255, 0.955),
+    4px 4px 8px rgba(244, 244, 244, 0.15);
+}
+
+
+/* ===================== */
+/* MOBILE RESPONSIVENESS */
+/* ===================== */
+
+@media (max-width: 992px) {
+    .hero-content {
+        max-width: 90%;
+    }
+}
+
+/* Tablets & Phones */
+@media (max-width: 768px) {
+
+    /* Header */
+    .top-header {
+        padding: 15px 20px;
+    }
+
+    .logo {
+        width: 130px;
+    }
+
+    /* Hero spacing */
+    .hero {
+        padding: 100px 15px 80px;
+    }
+
+    /* Main title */
+    h1.logo-text {
+        font-size: 2.8rem;
+    }
+
+    .tagline {
+        font-size: 1.2em;
+    }
+
+    .description {
+        font-size: 1em;
+        line-height: 1.6;
+    }
+
+    /* Services */
+    .services {
+        gap: 15px;
+    }
+
+    .service-item {
+        font-size: 0.95em;
+        padding: 12px 20px;
+    }
+
+    /* Under Construction text */
+    .under {
+        font-size: 32px;
+        letter-spacing: 2px;
+        padding: 20px;
+    }
+
+    .coming-soon {
+        font-size: 1.6em;
+    }
+
+    .contact-item {
+        font-size: 1.1em;
+        padding: 12px 24px;
+    }
+}
+
+/* Small Phones */
+@media (max-width: 480px) {
+
+    h1.logo-text {
+        font-size: 2.3rem;
+    }
+
+    .tagline {
+        font-size: 1.05em;
+    }
+
+    .description {
+        font-size: 0.95em;
+    }
+
+    .services {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-item {
+        width: 100%;
+        max-width: 260px;
+        text-align: center;
+    }
+
+    .under {
+        font-size: 26px;
+    }
+
+    .contact-item {
+        font-size: 1em;
+    }
+
+    footer {
+        padding: 20px 10px;
+    }
+}
+
+/* Splash video mobile fix */
+@media (max-width: 768px) {
+    #splash-screen video {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+}
+@media (max-width: 768px) {
+    .hero {
+        padding-top: 180px; /* pushes content below logos */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding-top: 200px; /* extra space for small phones */
+    }
+}
+
+
+
+</style>
+</head>
+
+<body>
+
+<!-- Splash -->
+<div id="splash-screen">
+    <video autoplay muted playsinline>
+        <source src="assets/rentalzo.mp4" type="video/mp4">
+    </video>
+</div>
+
+<div class="main-content">
+
+<header class="top-header">
+    <!-- Left: RentalZo Logo -->
+    <img src="assets/R.png" class="logo" alt="RentalZo">
+
+    <!-- Right: Buildzo Company -->
+  <a href="https://buildzo.info" target="_blank" class="buildzo-brand">
+    <!-- <div class="buildzo-text">Our Official Website</div> -->
+    <img src="assets/buildzo.png" alt="Buildzo Logo">
+    
+</a>
+</header>
+
+
+<section class="hero">
+    <div class="hero-content">
+        <h1 class="logo-text">Rental<span>Zo</span></h1>
+        <p class="tagline">Your Journey Begins Here</p>
+
+        <p class="description">
+            RentalZo makes travel simple by giving you instant access to cars, bikes, travel vehicles,
+            and professional drivers in one app. Whether it’s a short city ride or a long trip, you can
+            select flexible trip types, clear pricing options, and convenient pickup choices. Book
+            confidently with verified services and an easy, hassle-free experience.
+        </p>
+
+        <div class="services">
+            <div class="service-item">🚗 Car Rentals</div>
+            <div class="service-item">🏍️ Bike Rentals</div>
+            <div class="service-item">🚌 Bus Services</div>
+            <div class="service-item">👨‍✈️ Acting Driver Services</div>
+        </div>
+        <div class="under">UNDER CONSTRUCTION</div>
+        <div class="coming-soon">Coming Soon</div>
+
+        <div class="contact-item">📞 8838885379</div>
+
+        <p style="margin-top:20px;color:#ccc;">
+            Stay tuned for something amazing!
+        </p>
+    </div>
+</section>
+
+<footer>
+    <p>Designed & Developed by </p>
+    <a href="https://buildzo.info" class="company-link" target="_blank">buildzo.info</a>
+</footer>
+
+</div>
+</body>
+</html>
