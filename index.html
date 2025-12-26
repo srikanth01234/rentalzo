@@ -484,7 +484,13 @@ img{
 
 <!-- Splash -->
 <div id="splash-screen">
-    <video autoplay muted playsinline>
+       <video
+        id="splashVideo"
+        autoplay
+        muted
+        playsinline
+        webkit-playsinline
+        preload="auto">
         <source src="assets/rentalzo.mp4" type="video/mp4">
     </video>
 </div>
@@ -539,6 +545,26 @@ img{
 </footer>
 
 </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const video = document.getElementById("splashVideo");
+
+    if (!video) return;
+
+    video.muted = true; // MUST be muted for mobile
+
+    const playVideo = () => {
+        video.play().catch(() => {});
+    };
+
+    playVideo();
+
+    // Fallback for strict mobile browsers
+    document.body.addEventListener("touchstart", playVideo, { once: true });
+});
+</script>
+
+
 </body>
 </html>
-
